@@ -2,9 +2,8 @@
  * Entry point: turns arbitrary file bytes (XML or PDF) into a LoadedDocument.
  */
 import type { Container, Invoice, LoadedDocument } from "./model";
-import { parseCii } from "./parse/cii";
+import { CII_NS, parseCii } from "./parse/cii";
 import { parseUbl, UBL_NS } from "./parse/ubl";
-import { CII_NS } from "./parse/cii";
 import { isPdf, listEmbeddedFiles, pickInvoiceXml } from "./pdf";
 import { parseXml, XmlError } from "./xml";
 

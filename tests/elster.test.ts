@@ -25,7 +25,12 @@ describe("orgaMAX XRechnung sample matches the ELSTER viewer", async () => {
 
   it("seller (Verkäufer)", () => {
     expect(inv.seller.name).toBe("achtmacher KOMMUNIKATION");
-    expect(inv.seller.address).toEqual({ line1: "Test", postcode: "33181", city: "Musterstadt", country: "DE" });
+    expect(inv.seller.address).toEqual({
+      line1: "Test",
+      postcode: "33181",
+      city: "Musterstadt",
+      country: "DE",
+    });
     expect(inv.seller.contact).toEqual({
       name: "Max Mustermann",
       phone: "0123456789",
@@ -83,13 +88,21 @@ describe("orgaMAX XRechnung sample matches the ELSTER viewer", async () => {
 
   it("lines (Positionen)", () => {
     expect(
-      inv.lines.map((l) => [l.id, l.item.name, l.item.sellerId, l.quantity, l.unit, l.price.net, l.netAmount]),
+      inv.lines.map((l) => [
+        l.id,
+        l.item.name,
+        l.item.sellerId,
+        l.quantity,
+        l.unit,
+        l.price.net,
+        l.netAmount,
+      ]),
     ).toEqual([
       ["1", "Grafik/Design/Layout", "5", 1, "C62", 420.17, 420.17],
       ["2", "Texterstellung", "7", 1, "C62", 84.03, 84.03],
     ]);
-    expect(inv.lines.every((l) => l.vatCategory === "S" && l.vatRate === 19 && l.price.baseQuantity === 1)).toBe(
-      true,
-    );
+    expect(
+      inv.lines.every((l) => l.vatCategory === "S" && l.vatRate === 19 && l.price.baseQuantity === 1),
+    ).toBe(true);
   });
 });

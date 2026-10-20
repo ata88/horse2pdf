@@ -412,7 +412,11 @@ export function invoiceTerms(inv: Invoice): TermNode[] {
           t("BT-70", inv.delivery.partyName),
           tid("BT-71", inv.delivery.locationId),
           t("BT-72", inv.delivery.date),
-          addr("BG-15", ["BT-75", "BT-76", "BT-165", "BT-77", "BT-78", "BT-79", "BT-80"], inv.delivery.address),
+          addr(
+            "BG-15",
+            ["BT-75", "BT-76", "BT-165", "BT-77", "BT-78", "BT-79", "BT-80"],
+            inv.delivery.address,
+          ),
         ])
       : undefined,
     period("BG-14", "BT-73", "BT-74", inv.invoicePeriod),
@@ -476,7 +480,5 @@ export function invoiceTerms(inv: Invoice): TermNode[] {
 
 /** Depth-first list of all leaf terms – handy for tests and search. */
 export function flattenTerms(nodes: TermNode[], path: string[] = []): Array<TermNode & { path: string[] }> {
-  return nodes.flatMap((n) =>
-    n.children ? flattenTerms(n.children, [...path, n.id]) : [{ ...n, path }],
-  );
+  return nodes.flatMap((n) => (n.children ? flattenTerms(n.children, [...path, n.id]) : [{ ...n, path }]));
 }

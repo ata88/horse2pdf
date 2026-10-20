@@ -1,0 +1,1091 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`validation with the official rule sets > custom/orgaMAX_Beispielrechnung_XRechnung.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/cii-CII_business_example_01.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/cii-CII_example1.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/cii-CII_example2.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/cii-CII_example5.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/cii-huf_example_cii.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-guide-example1.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-sample-discount-price.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-ubl-tc434-creditnote1.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-ubl-tc434-example1.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-ubl-tc434-example2.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > en16931/ubl-ubl-tc434-example5.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > peppol/Allowance-example.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > peppol/base-creditnote-correction.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > peppol/base-example.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > peppol/sales-order-example.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > peppol/vat-category-E.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Einfach.cii.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Einfach.ubl.xml 1`] = `
+{
+  "errors": [
+    "DE-R-001",
+    "DE-R-002",
+    "DE-R-015",
+    "PEPPOL-EN16931-R003",
+    "PEPPOL-EN16931-R010",
+    "PEPPOL-EN16931-R020",
+  ],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Miete.cii.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Rabatte.cii.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Rabatte.ubl.xml 1`] = `
+{
+  "errors": [
+    "DE-R-001",
+    "DE-R-002",
+    "DE-R-015",
+    "PEPPOL-EN16931-R010",
+    "PEPPOL-EN16931-R020",
+    "PEPPOL-EN16931-R042",
+  ],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xml-rechnung/EN16931_Reisekostenabrechnung.cii.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.01_comprehensive_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.01_comprehensive_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.01a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.01a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.02_comprehensive_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.02_comprehensive_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.02a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.02a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.03_comprehensive_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.03_comprehensive_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.03a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.03a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.04_comprehensive_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.04_comprehensive_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.04a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.04a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.05_minimal_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.05_minimal_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.05a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.05a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.06_minimal_test_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.06_minimal_test_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.06a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.06a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.07a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.07a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.08a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.08a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.09a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.09a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.10a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.10a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.11a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.11a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.12a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.12a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.13a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.13a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.14a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.14a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.15a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.15a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.17a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.17a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.18a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.18a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.19a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.19a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.20a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.20a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.21a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/01.21a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.01a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.01a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.02a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.02a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.03a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.03a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.04a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.04a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.05a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.05a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.06a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/02.06a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.01a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.01a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.02a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.02a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.03a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.03a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.04a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.04a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.05a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.05a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.06a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.06a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.07a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/03.07a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/04.01a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "UBL-CR-646",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/04.02a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "UBL-CR-646",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/04.03a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "UBL-CR-646",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/04.04a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [
+    "UBL-CR-646",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/04.05a-INVOICE_uncefact.xml 1`] = `
+{
+  "errors": [
+    "BR-CL-10",
+    "BR-CL-21",
+  ],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > xrechnung/05.01a-INVOICE_ubl.xml 1`] = `
+{
+  "errors": [],
+  "infos": [
+    "BR-DE-TMP-32",
+  ],
+  "warnings": [
+    "UBL-CR-470",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/Avoir_FR_type381_BASIC.pdf 1`] = `
+{
+  "errors": [
+    "CII-DT-031",
+  ],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/Facture_FR_BASICWL.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/MustangGnuaccountingBeispielRE-20201121_508.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_BASIC_Einfach.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EN16931_Einfach.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "CII-SR-450",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EN16931_Elektron.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EN16931_Gutschrift.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "CII-SR-450",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EN16931_Innergemeinschaftliche_Lieferungen.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EN16931_Rabatte.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "CII-SR-119",
+    "CII-SR-128",
+    "CII-SR-450",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EXTENDED_Fremdwaehrung.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "BR-CL-19",
+    "BR-CL-25",
+    "CII-DT-043",
+    "CII-DT-044",
+    "CII-SR-013",
+    "CII-SR-108",
+    "CII-SR-313",
+    "CII-SR-360",
+    "CII-SR-366",
+    "CII-SR-452",
+    "CII-SR-453",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_EXTENDED_Warenrechnung.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [
+    "BR-CO-12",
+    "BR-S-08",
+    "CII-DT-043",
+    "CII-DT-044",
+    "CII-SR-002",
+    "CII-SR-013",
+    "CII-SR-028",
+    "CII-SR-102",
+    "CII-SR-128",
+    "CII-SR-154",
+    "CII-SR-312",
+    "CII-SR-335",
+    "CII-SR-351",
+    "CII-SR-396",
+    "CII-SR-408",
+    "CII-SR-450",
+  ],
+}
+`;
+
+exports[`validation with the official rule sets > zugferd/zugferd_2p0_MINIMUM.pdf 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;

@@ -63,13 +63,20 @@ describe("business terms match the KoSIT reference mapping", () => {
     const unexpected = diff(diff(actual, expected), known?.unexpected ?? []).filter(
       (t) =>
         // CII: KoSIT drops the buyer's ram:ID when a ram:GlobalID exists; we show both.
-        !(invoice.syntax === "CII" && t.startsWith("BT-46 = ") && expected.some((e) => e.startsWith("BT-46 = "))) &&
+        !(
+          invoice.syntax === "CII" &&
+          t.startsWith("BT-46 = ") &&
+          expected.some((e) => e.startsWith("BT-46 = "))
+        ) &&
         // KoSIT only emits BG-16 when a payment means code exists; we keep a lone remittance info.
         !(t.startsWith("BT-83 = ") && !expected.some((e) => e.startsWith("BT-81 = "))),
     );
     if (process.env.ORACLE_REPORT && (missing.length || unexpected.length)) {
       const { appendFileSync } = await import("node:fs");
-      appendFileSync(process.env.ORACLE_REPORT, `${JSON.stringify({ file: rel(file), missing, unexpected })}\n`);
+      appendFileSync(
+        process.env.ORACLE_REPORT,
+        `${JSON.stringify({ file: rel(file), missing, unexpected })}\n`,
+      );
     }
     expect({ missing, unexpected }).toEqual({ missing: [], unexpected: [] });
   });

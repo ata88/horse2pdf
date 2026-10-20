@@ -7,8 +7,8 @@ import type {
   Address,
   AllowanceCharge,
   Attachment,
-  Container,
   Contact,
+  Container,
   Identifier,
   Invoice,
   InvoiceLine,
@@ -28,7 +28,19 @@ export const CII_NS = {
 const x = new XPathLite(CII_NS);
 
 /** UNTDID 1001 codes that denote a credit note. */
-const CREDIT_NOTE_TYPES = new Set(["81", "83", "261", "262", "296", "308", "381", "396", "420", "458", "532"]);
+const CREDIT_NOTE_TYPES = new Set([
+  "81",
+  "83",
+  "261",
+  "262",
+  "296",
+  "308",
+  "381",
+  "396",
+  "420",
+  "458",
+  "532",
+]);
 
 function date(el: Element | undefined, path: string): string | undefined {
   return toIsoDate(x.text(el, path));
@@ -68,10 +80,9 @@ function party(p: Element | undefined): Party {
   return {
     name: x.text(p, "ram:Name"),
     tradingName: x.text(legal, "ram:TradingBusinessName"),
-    identifiers: [
-      ...x.all(p, "ram:ID").map(idOf),
-      ...x.all(p, "ram:GlobalID").map(idOf),
-    ].filter((i): i is Identifier => !!i),
+    identifiers: [...x.all(p, "ram:ID").map(idOf), ...x.all(p, "ram:GlobalID").map(idOf)].filter(
+      (i): i is Identifier => !!i,
+    ),
     legalRegistration: idOf(x.one(legal, "ram:ID")),
     vatId: x.text(regs.find((r) => x.attr(r, undefined, "schemeID")?.toUpperCase() === "VA")),
     taxRegistrationId: x.text(regs.find((r) => x.attr(r, undefined, "schemeID")?.toUpperCase() === "FC")),
@@ -185,7 +196,9 @@ function payment(settlement: Element | undefined, terms: Element[]): PaymentInst
   if (!means.length && !creditorId && !remittanceInfo) return undefined;
   const first = means[0];
   const card = x.one(first, "ram:ApplicableTradeSettlementFinancialCard");
-  const debited = means.map((m) => x.text(m, "ram:PayerPartyDebtorFinancialAccount/ram:IBANID")).find(Boolean);
+  const debited = means
+    .map((m) => x.text(m, "ram:PayerPartyDebtorFinancialAccount/ram:IBANID"))
+    .find(Boolean);
   return {
     meansCode: x.text(first, "ram:TypeCode"),
     meansText: x.text(first, "ram:Information"),
@@ -197,7 +210,9 @@ function payment(settlement: Element | undefined, terms: Element[]): PaymentInst
         bic: x.text(m, "ram:PayeeSpecifiedCreditorFinancialInstitution/ram:BICID"),
       })),
     ),
-    card: card ? { pan: x.text(card, "ram:ID") ?? "", holder: x.text(card, "ram:CardholderName") } : undefined,
+    card: card
+      ? { pan: x.text(card, "ram:ID") ?? "", holder: x.text(card, "ram:CardholderName") }
+      : undefined,
     directDebit:
       mandateId || creditorId || debited
         ? compact({ mandateId, creditorId, debitedAccount: debited })
@@ -269,7 +284,10 @@ export function parseCii(root: Element, container: Container = "xml"): Invoice {
     contractReference: x.text(agreement, "ram:ContractReferencedDocument/ram:IssuerAssignedID"),
     orderReference: x.text(agreement, "ram:BuyerOrderReferencedDocument/ram:IssuerAssignedID"),
     salesOrderReference: x.text(agreement, "ram:SellerOrderReferencedDocument/ram:IssuerAssignedID"),
-    receivingAdviceReference: x.text(deliveryEl, "ram:ReceivingAdviceReferencedDocument/ram:IssuerAssignedID"),
+    receivingAdviceReference: x.text(
+      deliveryEl,
+      "ram:ReceivingAdviceReferencedDocument/ram:IssuerAssignedID",
+    ),
     despatchAdviceReference: x.text(deliveryEl, "ram:DespatchAdviceReferencedDocument/ram:IssuerAssignedID"),
     tenderReference: refDocs
       .filter((d) => x.text(d, "ram:TypeCode") === "50")

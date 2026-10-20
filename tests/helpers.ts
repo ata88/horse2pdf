@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { join, relative } from "node:path";
 import { createRequire } from "node:module";
+import { join, relative } from "node:path";
 import { DOMParser } from "@xmldom/xmldom";
 import type { Invoice } from "../src/core/model";
 
@@ -36,10 +36,8 @@ export function transform(sefPath: string, xml: string): string {
     sef = JSON.parse(readFileSync(sefPath, "utf8"));
     sefCache.set(sefPath, sef);
   }
-  return SaxonJS.transform(
-    { stylesheetInternal: sef, sourceText: xml, destination: "serialized" },
-    "sync",
-  ).principalResult as string;
+  return SaxonJS.transform({ stylesheetInternal: sef, sourceText: xml, destination: "serialized" }, "sync")
+    .principalResult as string;
 }
 
 // ---------------------------------------------------------------------------
@@ -113,4 +111,37 @@ export function diff(a: string[], b: string[]): string[] {
     else out.push(x);
   }
   return out;
+}
+
+// ---------------------------------------------------------------------------
+// pdfmake for Node (same fonts as the browser bundle)
+
+import type { PdfMakeLike } from "../src/export/pdf";
+
+let nodePdfMake: PdfMakeLike | undefined;
+export function getNodePdfMake(): PdfMakeLike {
+  if (!nodePdfMake) {
+    const pm = require("pdfmake");
+    const dir = join(require.resolve("pdfmake/package.json"), "../build/fonts/Roboto");
+    for (const f of [
+      "Roboto-Regular.ttf",
+      "Roboto-Medium.ttf",
+      "Roboto-Italic.ttf",
+      "Roboto-MediumItalic.ttf",
+    ]) {
+      pm.virtualfs.writeFileSync(f, readFileSync(join(dir, f)));
+    }
+    pm.setFonts({
+      Roboto: {
+        normal: "Roboto-Regular.ttf",
+        bold: "Roboto-Medium.ttf",
+        italics: "Roboto-Italic.ttf",
+        bolditalics: "Roboto-MediumItalic.ttf",
+      },
+    });
+    pm.setUrlAccessPolicy(() => false);
+    pm.setLocalAccessPolicy(() => false);
+    nodePdfMake = pm;
+  }
+  return nodePdfMake!;
 }
