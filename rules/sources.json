@@ -1,0 +1,121 @@
+{
+  "$comment": "Pinned upstream versions of the validation artefacts. `pnpm rules:build` downloads them (sha256-verified) into .cache/rules and compiles them to public/rules/*.sef.json. Downloads are verified against rules/sources.lock.json. To update: change tag/url, run `pnpm rules:build --update-lock` and review the diff. `testOracles` are only used by the test-suite (independent reference mapping of every business term) and are not shipped with the app.",
+  "schxslt": {
+    "name": "SchXslt",
+    "version": "1.10.1",
+    "license": "MIT",
+    "homepage": "https://codeberg.org/SchXslt/schxslt",
+    "zip": "https://codeberg.org/SchXslt/schxslt/releases/download/v1.10.1/schxslt-1.10.1-xslt-only.zip"
+  },
+  "ruleSets": [
+    {
+      "id": "en16931-ubl",
+      "name": "EN 16931 (UBL)",
+      "version": "1.3.17",
+      "license": "EUPL-1.2",
+      "homepage": "https://github.com/ConnectingEurope/eInvoicing-EN16931",
+      "syntax": "UBL",
+      "kind": "xslt",
+      "main": "https://raw.githubusercontent.com/ConnectingEurope/eInvoicing-EN16931/validation-1.3.17/ubl/xslt/EN16931-UBL-validation.xslt"
+    },
+    {
+      "id": "en16931-cii",
+      "name": "EN 16931 (CII)",
+      "version": "1.3.17",
+      "license": "EUPL-1.2",
+      "homepage": "https://github.com/ConnectingEurope/eInvoicing-EN16931",
+      "syntax": "CII",
+      "kind": "xslt",
+      "main": "https://raw.githubusercontent.com/ConnectingEurope/eInvoicing-EN16931/validation-1.3.17/cii/xslt/EN16931-CII-validation.xslt"
+    },
+    {
+      "id": "xrechnung-ubl",
+      "name": "XRechnung 3.0 (UBL)",
+      "version": "2.6.0",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/itplr-kosit/xrechnung-schematron",
+      "syntax": "UBL",
+      "kind": "schematron",
+      "main": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-schematron/v2.6.0/src/validation/schematron/ubl/XRechnung-UBL-validation.sch",
+      "includes": {
+        "../common.sch": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-schematron/v2.6.0/src/validation/schematron/common.sch"
+      },
+      "tokens": {
+        "xr-schematron.version.full": "2.6.0",
+        "xrechnung.version": "3.0.2"
+      }
+    },
+    {
+      "id": "xrechnung-cii",
+      "name": "XRechnung 3.0 (CII)",
+      "version": "2.6.0",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/itplr-kosit/xrechnung-schematron",
+      "syntax": "CII",
+      "kind": "schematron",
+      "main": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-schematron/v2.6.0/src/validation/schematron/cii/XRechnung-CII-validation.sch",
+      "includes": {
+        "../common.sch": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-schematron/v2.6.0/src/validation/schematron/common.sch"
+      },
+      "tokens": {
+        "xr-schematron.version.full": "2.6.0",
+        "xrechnung.version": "3.0.2"
+      }
+    },
+    {
+      "id": "peppol-ubl",
+      "name": "Peppol BIS Billing 3.0 (UBL)",
+      "version": "3.0.20",
+      "license": "see upstream",
+      "homepage": "https://github.com/OpenPEPPOL/peppol-bis-invoice-3",
+      "syntax": "UBL",
+      "kind": "schematron",
+      "main": "https://raw.githubusercontent.com/OpenPEPPOL/peppol-bis-invoice-3/v3.0.20/rules/sch/PEPPOL-EN16931-UBL.sch"
+    },
+    {
+      "id": "peppol-cii",
+      "name": "Peppol BIS Billing 3.0 (CII)",
+      "version": "3.0.20",
+      "license": "see upstream",
+      "homepage": "https://github.com/OpenPEPPOL/peppol-bis-invoice-3",
+      "syntax": "CII",
+      "kind": "schematron",
+      "main": "https://raw.githubusercontent.com/OpenPEPPOL/peppol-bis-invoice-3/v3.0.20/rules/sch/PEPPOL-EN16931-CII.sch"
+    }
+  ],
+  "testOracles": [
+    {
+      "id": "kosit-ubl-invoice-xr",
+      "name": "KoSIT xrechnung-visualization UBL Invoice → xr",
+      "version": "v2026-10-13",
+      "license": "Apache-2.0",
+      "main": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/ubl-invoice-xr.xsl",
+      "includes": {
+        "common-xr.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/common-xr.xsl",
+        "functions.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/functions.xsl"
+      }
+    },
+    {
+      "id": "kosit-ubl-creditnote-xr",
+      "name": "KoSIT xrechnung-visualization UBL CreditNote → xr",
+      "version": "v2026-10-13",
+      "license": "Apache-2.0",
+      "main": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/ubl-creditnote-xr.xsl",
+      "includes": {
+        "common-xr.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/common-xr.xsl",
+        "functions.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/functions.xsl"
+      }
+    },
+    {
+      "id": "kosit-cii-xr",
+      "name": "KoSIT xrechnung-visualization CII → xr",
+      "version": "v2026-10-13",
+      "license": "Apache-2.0",
+      "main": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/cii-xr.xsl",
+      "includes": {
+        "common-xr.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/common-xr.xsl",
+        "functions.xsl": "https://raw.githubusercontent.com/itplr-kosit/xrechnung-visualization/v2026-10-13/src/xsl/functions.xsl"
+      }
+    }
+  ]
+}
