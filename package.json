@@ -1,0 +1,60 @@
+{
+  "name": "horse2pdf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Moderner Viewer f\u00fcr E-Rechnungen (XRechnung, ZUGFeRD, Factur-X): anzeigen, pr\u00fcfen, drucken und als PDF exportieren.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm assets && vite",
+    "build": "pnpm assets && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "app:dev": "tauri dev",
+    "app:build": "tauri build",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "assets": "node scripts/copy-pdfjs-assets.mjs && node scripts/build-rules.mjs",
+    "rules:build": "node scripts/build-rules.mjs",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.12.4",
+    "@tauri-apps/plugin-dialog": "^2.8.3",
+    "@tauri-apps/plugin-opener": "^2.7.2",
+    "@xmldom/xmldom": "^0.9.12",
+    "lucide-react": "^1.60.0",
+    "pdfjs-dist": "^6.4.299",
+    "pdfmake": "0.3.12",
+    "qrcode": "^1.5.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@playwright/test": "1.56.1",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tauri-apps/cli": "^2.12.3",
+    "@types/node": "^26.6.5",
+    "@types/pdfmake": "0.3.3",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "fflate": "^0.8.3",
+    "saxon-js": "2.7.0",
+    "typescript": "5.9.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5",
+    "xslt3": "2.7.0"
+  }
+}
