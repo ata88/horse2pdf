@@ -9,10 +9,12 @@ import type * as PdfJs from "pdfjs-dist";
 
 type PdfJsModule = typeof PdfJs;
 
+// The "legacy" build is used on purpose: it ships polyfills for newer JS APIs that the
+// system webviews (WKWebView on older macOS, WebView2) do not have yet.
 let loader: () => Promise<PdfJsModule> = async () => {
   const [pdfjs, worker] = await Promise.all([
-    import("pdfjs-dist"),
-    import("pdfjs-dist/build/pdf.worker.min.mjs?url"),
+    import("pdfjs-dist/legacy/build/pdf.mjs"),
+    import("pdfjs-dist/legacy/build/pdf.worker.min.mjs?url"),
   ]);
   pdfjs.GlobalWorkerOptions.workerSrc = worker.default;
   return pdfjs;
@@ -27,6 +29,18 @@ export function setPdfjsLoader(fn: () => Promise<PdfJsModule>): void {
 export function loadPdfjs(): Promise<PdfJsModule> {
   cached ??= loader();
   return cached;
+}
+
+/** Browser: pdf.js runtime assets copied to public/pdfjs by scripts/copy-pdfjs-assets.mjs. */
+function assetOptions() {
+  if (typeof document === "undefined") return {};
+  const base = `${import.meta.env.BASE_URL}pdfjs/`;
+  return {
+    cMapUrl: `${base}cmaps/`,
+    cMapPacked: true,
+    standardFontDataUrl: `${base}standard_fonts/`,
+    wasmUrl: `${base}wasm/`,
+  };
 }
 
 export function isPdf(bytes: Uint8Array): boolean {
@@ -45,7 +59,7 @@ export interface EmbeddedFile {
 export async function openPdf(bytes: Uint8Array) {
   const pdfjs = await loadPdfjs();
   // pdf.js transfers (detaches) the buffer it gets – always hand it a copy.
-  const task = pdfjs.getDocument({ data: new Uint8Array(bytes), verbosity: 0 });
+  const task = pdfjs.getDocument({ data: new Uint8Array(bytes), verbosity: 0, ...assetOptions() });
   return { task, doc: await task.promise };
 }
 

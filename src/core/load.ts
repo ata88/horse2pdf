@@ -9,6 +9,9 @@ import { parseXml, XmlError } from "./xml";
 
 export class UnsupportedDocumentError extends Error {}
 
+/** Words that mark a PDF attachment as the visual representation of the invoice itself. */
+const INVOICE_WORDS = /rechnung|invoice|faktura|facture|fattura|gutschrift|credit.?note|beleg/i;
+
 const ZUGFERD1_NS = "urn:ferd:CrossIndustryDocument:invoice:1p0";
 const SBDH_NS = "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader";
 
@@ -90,7 +93,7 @@ export async function loadDocument(bytes: Uint8Array, fileName: string): Promise
       container: "pdf",
       xml,
       invoice: parseInvoiceXml(xml, "pdf"),
-      originalPdf: { bytes, source: "container", name: fileName },
+      originalPdf: { bytes, source: "container", name: fileName, isInvoiceImage: true },
       embeddedXmlName: embedded.name,
       warnings,
     };
@@ -98,9 +101,12 @@ export async function loadDocument(bytes: Uint8Array, fileName: string): Promise
 
   const xml = decodeXml(bytes);
   const invoice = parseInvoiceXml(xml, "xml");
-  const pdfAttachment = invoice.attachments.find(
+  const pdfAttachments = invoice.attachments.filter(
     (a) => a.content && (a.mimeType === "application/pdf" || /\.pdf$/i.test(a.filename ?? "")),
   );
+  const looksLikeInvoice = (a: (typeof pdfAttachments)[number]) =>
+    INVOICE_WORDS.test([a.id, a.description, a.filename].filter(Boolean).join(" "));
+  const pdfAttachment = pdfAttachments.find(looksLikeInvoice) ?? pdfAttachments[0];
   let originalPdf: LoadedDocument["originalPdf"];
   if (pdfAttachment?.content) {
     try {
@@ -110,6 +116,7 @@ export async function loadDocument(bytes: Uint8Array, fileName: string): Promise
           bytes: pdfBytes,
           source: "attachment",
           name: pdfAttachment.filename ?? `${pdfAttachment.id}.pdf`,
+          isInvoiceImage: looksLikeInvoice(pdfAttachment),
         };
       }
     } catch {

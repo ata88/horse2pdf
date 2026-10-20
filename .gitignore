@@ -13,3 +13,4 @@ blob-report/
 !.vscode/settings.json
 src-tauri/target/
 src-tauri/gen/schemas/
+public/pdfjs/

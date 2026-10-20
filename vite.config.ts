@@ -1,8 +1,10 @@
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
 
 const host = process.env.TAURI_DEV_HOST;
+const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"));
 
 // https://vite.dev/config/ – shared by the Tauri app, the browser build and Vitest.
 export default defineConfig({
@@ -17,6 +19,7 @@ export default defineConfig({
     watch: { ignored: ["**/src-tauri/**"] },
   },
   envPrefix: ["VITE_", "TAURI_ENV_"],
+  define: { "import.meta.env.VITE_APP_VERSION": JSON.stringify(pkg.version) },
   build: {
     target: process.env.TAURI_ENV_PLATFORM === "windows" ? "chrome105" : "safari15",
     chunkSizeWarningLimit: 4096,

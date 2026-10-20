@@ -397,7 +397,17 @@ export interface LoadedDocument {
    * itself or a PDF attached to an XRechnung (BG-24). Used for the "Original" view and
    * preferred for printing/exporting when present.
    */
-  originalPdf?: { bytes: Uint8Array; source: "container" | "attachment"; name: string };
+  originalPdf?: {
+    bytes: Uint8Array;
+    source: "container" | "attachment";
+    name: string;
+    /**
+     * True for the ZUGFeRD carrier PDF and for attachments that look like the invoice
+     * itself (name/description mention "Rechnung", "invoice", …). Only then the PDF is
+     * the default for printing and exporting – other attachments are often just annexes.
+     */
+    isInvoiceImage: boolean;
+  };
   /** Name of the embedded XML file inside the PDF (factur-x.xml, zugferd-invoice.xml, xrechnung.xml …). */
   embeddedXmlName?: string;
   /** Non-fatal problems found while loading (e.g. several XML attachments). */

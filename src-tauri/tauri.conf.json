@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "horse2pdf",
+  "version": "../package.json",
+  "identifier": "io.github.ata88.horse2pdf",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "horse2pdf",
+        "width": 1280,
+        "height": 880,
+        "minWidth": 820,
+        "minHeight": 560,
+        "center": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self' ipc: http://ipc.localhost data: blob:; font-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "publisher": "horse2pdf",
+    "copyright": "© horse2pdf contributors – MIT License",
+    "category": "Business",
+    "shortDescription": "E-Rechnungen anzeigen, prüfen und als PDF exportieren",
+    "longDescription": "horse2pdf zeigt E-Rechnungen (XRechnung UBL/CII, ZUGFeRD, Factur-X, Peppol BIS Billing 3.0) übersichtlich an, prüft sie offline mit den offiziellen Regelwerken und exportiert sie als schön formatiertes PDF.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "fileAssociations": [
+      {
+        "ext": ["xml"],
+        "name": "E-Rechnung (XML)",
+        "description": "XRechnung / ZUGFeRD / Peppol E-Rechnung",
+        "mimeType": "application/xml",
+        "role": "Viewer",
+        "rank": "Alternate"
+      },
+      {
+        "ext": ["pdf"],
+        "name": "ZUGFeRD / Factur-X PDF",
+        "description": "PDF mit eingebetteter E-Rechnung",
+        "mimeType": "application/pdf",
+        "role": "Viewer",
+        "rank": "Alternate"
+      }
+    ],
+    "macOS": {
+      "minimumSystemVersion": "11.0"
+    },
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper" },
+      "nsis": {
+        "installMode": "both",
+        "languages": ["German", "English"],
+        "displayLanguageSelector": false
+      },
+      "wix": {
+        "language": ["de-DE", "en-US"]
+      }
+    },
+    "linux": {
+      "deb": { "section": "office" }
+    }
+  }
+}
