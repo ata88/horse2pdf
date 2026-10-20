@@ -45,7 +45,7 @@ export interface EmbeddedFile {
 export async function openPdf(bytes: Uint8Array) {
   const pdfjs = await loadPdfjs();
   // pdf.js transfers (detaches) the buffer it gets – always hand it a copy.
-  const task = pdfjs.getDocument({ data: bytes.slice(), isEvalSupported: false, verbosity: 0 });
+  const task = pdfjs.getDocument({ data: new Uint8Array(bytes), verbosity: 0 });
   return { task, doc: await task.promise };
 }
 

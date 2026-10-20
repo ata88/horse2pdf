@@ -65,7 +65,10 @@ describe("EN 16931 calculation rules hold on the parsed model", () => {
     expect(docAllowances, "BT-107").toBeCloseTo(t.allowances ?? 0, 2);
     expect(docCharges, "BT-108").toBeCloseTo(t.charges ?? 0, 2);
     // BR-CO-13
-    expect(round2((t.lineNet ?? 0) - docAllowances + docCharges), "BT-109").toBeCloseTo(t.taxExclusive ?? 0, 2);
+    expect(round2((t.lineNet ?? 0) - docAllowances + docCharges), "BT-109").toBeCloseTo(
+      t.taxExclusive ?? 0,
+      2,
+    );
     // BR-CO-14: VAT total = sum of VAT breakdown
     expect(sum(inv.vatBreakdown.map((v) => v.taxAmount)), "BT-110").toBeCloseTo(t.tax ?? 0, 2);
     // BR-CO-15
@@ -73,9 +76,9 @@ describe("EN 16931 calculation rules hold on the parsed model", () => {
     // BR-CO-16
     // BR-CO-16 (+ BR-DEX-09: third party payments are added to the amount due)
     const thirdParty = sum(inv.thirdPartyPayments.map((p) => p.amount));
-    expect(round2((t.taxInclusive ?? 0) - (t.prepaid ?? 0) + (t.rounding ?? 0) + thirdParty), "BT-115").toBeCloseTo(
-      t.payable ?? 0,
-      2,
-    );
+    expect(
+      round2((t.taxInclusive ?? 0) - (t.prepaid ?? 0) + (t.rounding ?? 0) + thirdParty),
+      "BT-115",
+    ).toBeCloseTo(t.payable ?? 0, 2);
   });
 });
