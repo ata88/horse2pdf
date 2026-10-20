@@ -12,7 +12,9 @@
       "!tests/fixtures",
       "!src-tauri/gen",
       "!src-tauri/icons",
-      "!rules/sources.lock.json"
+      "!rules/sources.lock.json",
+      "!.release-please-manifest.json",
+      "!CHANGELOG.md"
     ]
   },
   "formatter": {
