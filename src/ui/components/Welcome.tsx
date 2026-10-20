@@ -2,7 +2,7 @@ import { FileCode2, FolderOpen, ShieldCheck } from "lucide-react";
 import type { OpenedFile } from "../../platform";
 
 const SAMPLES = [
-  { file: "xrechnung-ubl-beispiel.xml", label: "XRechnung (UBL)" },
+  { file: "demo-xrechnung.xml", label: "Demo-Rechnung (XRechnung)" },
   { file: "xrechnung-extension-beispiel.xml", label: "XRechnung mit Unterpositionen" },
   { file: "zugferd-beispiel.pdf", label: "ZUGFeRD-PDF" },
 ];

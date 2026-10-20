@@ -1,5 +1,16 @@
 {
   "$comment": "Pinned upstream versions of the validation artefacts. `pnpm rules:build` downloads them (sha256-verified) into .cache/rules and compiles them to public/rules/*.sef.json. Downloads are verified against rules/sources.lock.json. To update: change tag/url, run `pnpm rules:build --update-lock` and review the diff. `testOracles` are only used by the test-suite (independent reference mapping of every business term) and are not shipped with the app.",
+  "saxonjs": {
+    "name": "SaxonJS (browser runtime)",
+    "version": "2.7",
+    "license": "Saxonica license (redistribution in binary form permitted, see LICENSE.txt)",
+    "homepage": "https://www.saxonica.com/saxonjs/",
+    "zip": "https://downloads.saxonica.com/SaxonJS/2/SaxonJS-2.7.zip",
+    "files": {
+      "saxon-js/SaxonJS2.rt.js": "SaxonJS2.rt.js",
+      "saxon-js/LICENSE.txt": "LICENSE.txt"
+    }
+  },
   "schxslt": {
     "name": "SchXslt",
     "version": "1.10.1",
@@ -43,7 +54,15 @@
       "tokens": {
         "xr-schematron.version.full": "2.6.0",
         "xrechnung.version": "3.0.2"
-      }
+      },
+      "patches": [
+        {
+          "find": "xs:integer(string-join(for $cp in string-to-codepoints(concat(substring($normalizedIban,5)",
+          "replace": "xs:decimal(string-join(for $cp in string-to-codepoints(concat(substring($normalizedIban,5)",
+          "count": 1,
+          "reason": "SaxonJS 2.7 represents xs:integer as a JS number and loses precision for the ~24 digit IBAN check number (mod 97 gives wrong results → false BR-DE-19 warnings). xs:decimal is exact."
+        }
+      ]
     },
     {
       "id": "xrechnung-cii",
@@ -60,7 +79,15 @@
       "tokens": {
         "xr-schematron.version.full": "2.6.0",
         "xrechnung.version": "3.0.2"
-      }
+      },
+      "patches": [
+        {
+          "find": "xs:integer(string-join(for $cp in string-to-codepoints(concat(substring($normalizedIban,5)",
+          "replace": "xs:decimal(string-join(for $cp in string-to-codepoints(concat(substring($normalizedIban,5)",
+          "count": 1,
+          "reason": "SaxonJS 2.7 represents xs:integer as a JS number and loses precision for the ~24 digit IBAN check number (mod 97 gives wrong results → false BR-DE-19 warnings). xs:decimal is exact."
+        }
+      ]
     },
     {
       "id": "peppol-ubl",

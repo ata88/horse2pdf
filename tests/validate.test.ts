@@ -97,3 +97,19 @@ describe("validation detects manipulated invoices", () => {
     expect(r.issues.some((i) => i.ruleId === "BR-DE-15" && i.severity === "error")).toBe(true);
   });
 });
+
+describe("IBAN check (BR-DE-19) is exact", () => {
+  const demo = () => fixtureFiles().find((x) => x.endsWith("demo-xrechnung.xml"))!;
+  const run = async (iban: string) => {
+    const xml = new TextDecoder().decode(readFixture(demo())).replace("DE89370400440532013000", iban);
+    const doc = await loadDocument(new TextEncoder().encode(xml), "iban.xml");
+    return (await validateInvoice(doc.xml, doc.invoice)).issues.map((i) => i.ruleId);
+  };
+  it("accepts a valid IBAN (needs exact 24 digit arithmetic)", async () => {
+    expect(await run("DE89370400440532013000")).not.toContain("BR-DE-19");
+    expect(await run("DE02120300000000202051")).not.toContain("BR-DE-19");
+  });
+  it("warns about an IBAN with a wrong check digit", async () => {
+    expect(await run("DE89370400440532013001")).toContain("BR-DE-19");
+  });
+});

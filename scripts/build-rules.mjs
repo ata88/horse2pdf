@@ -12,7 +12,7 @@
 import { execFile } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { dirname, join, posix, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,7 +27,7 @@ const lockPath = join(root, "rules/sources.lock.json");
 const cacheDir = join(root, ".cache/rules");
 const outDir = join(root, "public/rules");
 const oracleDir = join(cacheDir, "oracles");
-const BUILD_FORMAT = 2; // bump when the output layout changes
+const BUILD_FORMAT = 3; // bump when the output layout changes
 
 const args = new Set(process.argv.slice(2));
 const updateLock = args.has("--update-lock");
@@ -47,6 +47,7 @@ if (!force && existsSync(manifestPath)) {
   if (
     manifest.configHash === configHash &&
     manifest.ruleSets.every((r) => existsSync(join(outDir, r.file))) &&
+    existsSync(join(root, "public/vendor/saxon-js/SaxonJS2.rt.js")) &&
     (sources.testOracles ?? []).every((o) => existsSync(join(oracleDir, `${o.id}.sef.json`)))
   ) {
     console.log("rules: up to date");
@@ -54,7 +55,7 @@ if (!force && existsSync(manifestPath)) {
   }
 }
 
-async function download(url) {
+async function downloadUncached(url) {
   const cached = join(cacheDir, "downloads", sha256(url));
   let data;
   if (existsSync(cached) && !updateLock) {
@@ -81,8 +82,18 @@ async function download(url) {
     throw new Error(`sha256 mismatch for ${url}\n  expected ${lock[url]}\n  got      ${hash}`);
   }
   await mkdir(dirname(cached), { recursive: true });
-  await writeFile(cached, data);
+  // atomic write: parallel builds must never observe a half written cache file
+  const tmp = `${cached}.${process.pid}.${Math.random().toString(36).slice(2)}`;
+  await writeFile(tmp, data);
+  await rename(tmp, cached);
   return data;
+}
+
+const downloads = new Map();
+/** Each URL is fetched/verified once per run, even if several rule sets include it. */
+function download(url) {
+  if (!downloads.has(url)) downloads.set(url, downloadUncached(url));
+  return downloads.get(url);
 }
 
 async function xslt3(...xsltArgs) {
@@ -105,6 +116,15 @@ for (const [name, content] of Object.entries(zip)) {
 }
 const schxsltPipeline = join(schxsltDir, "2.0/pipeline-for-svrl.xsl");
 
+// SaxonJS browser runtime (not committed to git – its license forbids hosting it for download)
+const saxonDir = join(root, "public/vendor/saxon-js");
+const saxonZip = unzipSync(new Uint8Array(await download(sources.saxonjs.zip)));
+await mkdir(saxonDir, { recursive: true });
+for (const [from, to] of Object.entries(sources.saxonjs.files)) {
+  if (!saxonZip[from]) throw new Error(`${from} missing in ${sources.saxonjs.zip}`);
+  await writeFile(join(saxonDir, to), saxonZip[from]);
+}
+
 await mkdir(outDir, { recursive: true });
 
 async function buildRuleSet(rs, target = outDir) {
@@ -120,6 +140,16 @@ async function buildRuleSet(rs, target = outDir) {
     let text = (await download(url)).toString("utf8");
     for (const [token, value] of Object.entries(rs.tokens ?? {})) {
       text = text.replaceAll(`@${token}@`, value);
+    }
+    if (path === mainPath) {
+      // Documented, minimal patches for engine limitations (see `reason` in sources.json).
+      for (const patch of rs.patches ?? []) {
+        const found = text.split(patch.find).length - 1;
+        if (found !== patch.count) {
+          throw new Error(`${rs.id}: patch expected ${patch.count} match(es), found ${found}: ${patch.find}`);
+        }
+        text = text.replaceAll(patch.find, patch.replace);
+      }
     }
     await mkdir(dirname(path), { recursive: true });
     await writeFile(path, text);

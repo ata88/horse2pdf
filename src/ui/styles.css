@@ -949,7 +949,7 @@ mark {
   }
 
   .app {
-    display: none !important;
+    display: none;
   }
 
   .print-root {
