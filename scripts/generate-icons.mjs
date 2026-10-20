@@ -16,11 +16,15 @@ const svg = readFileSync(join(root, "public/icon.svg"));
 const png = new Resvg(svg, { fitTo: { mode: "width", value: 1024 } }).render().asPng();
 const tmp = join(mkdtempSync(join(tmpdir(), "horse2pdf-icon-")), "icon.png");
 writeFileSync(tmp, png);
-writeFileSync(join(root, "public/icon-512.png"), new Resvg(svg, { fitTo: { mode: "width", value: 512 } }).render().asPng());
+writeFileSync(
+  join(root, "public/icon-512.png"),
+  new Resvg(svg, { fitTo: { mode: "width", value: 512 } }).render().asPng(),
+);
 execFileSync("pnpm", ["exec", "tauri", "icon", tmp, "-o", join(root, "src-tauri/icons")], {
   stdio: "inherit",
   cwd: root,
   shell: process.platform === "win32",
 });
 // Mobile targets are not used.
-for (const dir of ["android", "ios"]) rmSync(join(root, "src-tauri/icons", dir), { recursive: true, force: true });
+for (const dir of ["android", "ios"])
+  rmSync(join(root, "src-tauri/icons", dir), { recursive: true, force: true });

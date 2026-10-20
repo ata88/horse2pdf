@@ -1,5 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`validation with the official rule sets > custom/demo-xrechnung.xml 1`] = `
+{
+  "errors": [],
+  "infos": [],
+  "warnings": [],
+}
+`;
+
 exports[`validation with the official rule sets > custom/orgaMAX_Beispielrechnung_XRechnung.xml 1`] = `
 {
   "errors": [],
