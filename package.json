@@ -2,7 +2,7 @@
   "name": "horse2pdf",
   "version": "0.1.0",
   "private": true,
-  "description": "Moderner Viewer f\u00fcr E-Rechnungen (XRechnung, ZUGFeRD, Factur-X): anzeigen, pr\u00fcfen, drucken und als PDF exportieren.",
+  "description": "Moderner Viewer für E-Rechnungen (XRechnung, ZUGFeRD, Factur-X): anzeigen, prüfen, drucken und als PDF exportieren.",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.28.0",
