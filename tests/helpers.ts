@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
-import { join, relative } from "node:path";
+import { join, relative, sep } from "node:path";
 import { DOMParser } from "@xmldom/xmldom";
 import type { Invoice } from "../src/core/model";
 
@@ -19,7 +19,8 @@ export function fixtureFiles(ext: RegExp = /\.(xml|pdf)$/i): string[] {
   return out.sort();
 }
 
-export const rel = (p: string) => relative(FIXTURES, p);
+/** Fixture path relative to tests/fixtures, always with "/" (test names and snapshot keys must not depend on the OS). */
+export const rel = (p: string) => relative(FIXTURES, p).split(sep).join("/");
 
 export function readFixture(p: string): Uint8Array {
   return new Uint8Array(readFileSync(p));
