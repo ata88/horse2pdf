@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/ata88/horse2pdf/compare/v0.1.0...v0.1.1) (2026-10-21)
+
+
+### Fehlerbehebungen
+
+* make fixture-based tests OS independent (Windows release build) ([cd92e20](https://github.com/ata88/horse2pdf/commit/cd92e205eea825c1effd55774cf9743e30c7e10b))
+* Tests plattformunabhängig – Windows-Release-Build repariert ([779f35f](https://github.com/ata88/horse2pdf/commit/779f35ff0aea6d46970e12d68f9e546a64db495d))
+
 ## 0.1.0 (2026-10-20)
 
 
