@@ -32,7 +32,7 @@
     "@tauri-apps/plugin-dialog": "^2.8.3",
     "@tauri-apps/plugin-opener": "^2.7.2",
     "@xmldom/xmldom": "^0.9.12",
-    "lucide-react": "^1.60.0",
+    "lucide-react": "^1.61.0",
     "pdfjs-dist": "^6.4.299",
     "pdfmake": "0.3.12",
     "qrcode": "^1.5.4",
