@@ -40,10 +40,10 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.15",
-    "@playwright/test": "1.56.1",
+    "@biomejs/biome": "^2.6.3",
+    "@playwright/test": "1.64.1",
     "@resvg/resvg-js": "^2.6.2",
-    "@tauri-apps/cli": "^2.12.3",
+    "@tauri-apps/cli": "^2.12.4",
     "@types/node": "^26.6.5",
     "@types/pdfmake": "0.3.3",
     "@types/qrcode": "^1.5.6",
@@ -52,8 +52,8 @@
     "@vitejs/plugin-react": "^6.1.2",
     "fflate": "^0.8.3",
     "saxon-js": "2.7.0",
-    "typescript": "5.9.3",
-    "vite": "^8.3.4",
+    "typescript": "7.0.2",
+    "vite": "^8.3.5",
     "vitest": "^5.0.5",
     "xslt3": "2.7.0"
   }
