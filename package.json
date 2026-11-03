@@ -34,7 +34,7 @@
     "@xmldom/xmldom": "^0.9.12",
     "lucide-react": "^1.60.0",
     "pdfjs-dist": "^6.4.299",
-    "pdfmake": "0.3.12",
+    "pdfmake": "0.3.13",
     "qrcode": "^1.5.4",
     "react": "19.3.1",
     "react-dom": "19.3.1"
