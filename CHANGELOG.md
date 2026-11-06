@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.2](https://github.com/ata88/horse2pdf/compare/v0.1.1...v0.1.2) (2026-11-06)
+
+
+### Abhängigkeiten
+
+* Bump @tauri-apps/plugin-dialog ([a9a68f3](https://github.com/ata88/horse2pdf/commit/a9a68f3febb628201ddf94d4e21a8e6193dab26f))
+* Bump lucide-react from 1.60.0 to 1.66.0 ([c61fd1e](https://github.com/ata88/horse2pdf/commit/c61fd1ea5bab04ac89cf0a27c22736044aa2cbd9))
+* Bump pdfmake from 0.3.12 to 0.3.13 ([f505836](https://github.com/ata88/horse2pdf/commit/f5058361f4dbfe3f7f306210109f1930f9dea189))
+* Bump the dev-tooling group across 1 directory with 6 updates ([79bc16d](https://github.com/ata88/horse2pdf/commit/79bc16d7cc53191e8801cc591bab2be690f07d66))
+* Bump the tauri group across 1 directory with 4 updates ([375a965](https://github.com/ata88/horse2pdf/commit/375a965308bd9f0008a3119126bda9cd0ef891c9))
+
 ## [0.1.1](https://github.com/ata88/horse2pdf/compare/v0.1.0...v0.1.1) (2026-10-21)
 
 
