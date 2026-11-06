@@ -30,7 +30,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Cache validation rules
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .cache/rules/downloads
           key: rules-${{ hashFiles('rules/sources.json', 'rules/sources.lock.json') }}
@@ -96,7 +96,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: .cache/rules/downloads
           key: rules-${{ hashFiles('rules/sources.json', 'rules/sources.lock.json') }}
